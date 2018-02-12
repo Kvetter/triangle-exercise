@@ -3,6 +3,9 @@ package com.kvetter;
 public class SideCalc {
 
     public String calcSides(int a, int b, int c) {
+        if (a + b < c || b + c < a || a + c < b) {
+            return "Cannot form a tringle with these inputs";
+        }
         if (a <= 0 || b <= 0 || c <= 0) {
             return "This is not a triangle";
         } else if (a == b && b == c) {
