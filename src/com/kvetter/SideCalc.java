@@ -3,17 +3,32 @@ package com.kvetter;
 public class SideCalc {
 
     public String calcSides(int a, int b, int c) {
-        if (a + b < c || b + c < a || a + c < b) {
-            return "Cannot form a tringle with these inputs";
+        if (isValid(a, b, c)) {
+            return findTriangle(a, b, c);
         }
-        if (a <= 0 || b <= 0 || c <= 0) {
-            return "This is not a triangle";
-        } else if (a == b && b == c) {
+        return "This is not a triangle";
+    }
+
+    public String findTriangle(int a, int b, int c) {
+        if (isEquilateral(a, b, c)) {
             return "This is an equilateral triangle";
-        } else if (a == b || b == c || a == c) {
+        } else if (isIsoscele(a, b, c)) {
             return "This is an isoscele triangle";
         } else {
             return "This is a scalene triangle";
         }
     }
+
+    public boolean isValid(int a, int b, int c) {
+        return (a + b > c && b + c > a && a + c > b);
+    }
+
+    public boolean isEquilateral(int a, int b, int c){
+        return (a == b && b == c);
+    }
+
+    public boolean isIsoscele(int a, int b, int c){
+        return (a == b || b == c || a == c);
+    }
+
 }
