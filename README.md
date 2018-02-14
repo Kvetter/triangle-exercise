@@ -1,4 +1,6 @@
-# triangle-exercise
+# Triangle Exercise
+
+School assignment for testing kinds of triangles
 
 ### Test cases
 
